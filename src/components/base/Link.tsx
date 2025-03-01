@@ -1,9 +1,9 @@
-import { styled } from "@styled-system/jsx";
-import { Component, ComponentProps, JSX } from "solid-js";
+import { Component } from "solid-js";
+import { styled, type HTMLStyledProps } from "@styled-system/jsx";
 
-const StyledLink = styled.a;
-
-export interface LinkProps extends ComponentProps<typeof StyledLink> {}
+export interface LinkProps extends HTMLStyledProps<"a"> {
+	href: string;
+}
 
 /**
  * Checks if a given URL is external.
@@ -22,9 +22,14 @@ const isExternal = (url: string): boolean => {
 };
 
 export const Link: Component<LinkProps> = ({ href, ...props }) => {
-	const finalHref = href || "#";
+	let targetProps = {};
 
-	const target = isExternal(finalHref) ? "_blank" : undefined;
+	if (isExternal(href)) {
+		targetProps = {
+			target: "_blank",
+			rel: "noopener noreferrer"
+		};
+	}
 
-	return StyledLink({ href: finalHref, target, ...props });
+	return <styled.a href={href} {...targetProps} {...props} />;
 };

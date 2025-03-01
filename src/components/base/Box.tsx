@@ -1,11 +1,11 @@
 // src/components/base/Box.tsx
-import { Component, JSX, type ComponentProps } from "solid-js";
-import { styled } from "@styled-system/jsx";
+import { Component } from "solid-js";
+import { styled, type HTMLStyledProps } from "@styled-system/jsx";
 
 /**
  * Box props (applicable to block-like elements)
  */
-export interface BoxProps extends ComponentProps<typeof styled.div> {
+export interface BoxProps extends HTMLStyledProps<"div"> {
 	as?:
 		| "div"
 		| "main"

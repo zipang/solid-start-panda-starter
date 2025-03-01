@@ -6,7 +6,7 @@ export const defaultVstackProps = {
 	gap: 10,
 	alignItems: "center",
 	justifyContent: "center"
-};
+} as BoxProps;
 
 /**
  * Vertically stack child elements

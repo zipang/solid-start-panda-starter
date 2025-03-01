@@ -1,8 +1,8 @@
 // src/components/base/Text.tsx
-import { Component, type ComponentProps } from "solid-js";
-import { styled } from "@styled-system/jsx";
+import { Component } from "solid-js";
+import { styled, type HTMLStyledProps } from "@styled-system/jsx";
 
-export interface TextProps extends ComponentProps<typeof styled.p> {
+export interface TextProps extends HTMLStyledProps<"p"> {
 	as?: "p" | "em" | "strong" | "span" | "label";
 }
 
