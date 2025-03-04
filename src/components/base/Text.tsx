@@ -8,7 +8,8 @@ export interface TextProps extends HTMLStyledProps<"p"> {
 
 export const Text: Component<TextProps> = styled("p", {
 	base: {
+		fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif`,
 		fontWeight: 400,
-		lineHeight: 1.4
+		lineHeight: 1.7
 	}
 });
