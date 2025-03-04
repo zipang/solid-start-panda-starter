@@ -2,16 +2,14 @@ import { Title } from "@solidjs/meta";
 import { Container, Heading, Link, Text } from "@components/base";
 import { AppHeader } from "@components/app";
 
-export const title = "SolidJS + Panda UI Starter";
-
-export default function Home() {
+const HomePage = () => {
 	return (
 		<main>
 			<AppHeader />
-			<Title>{title}</Title>
+			<Title>{HomePage.title}</Title>
 
 			<Container marginTop="100px">
-				<Heading color="black">{title}</Heading>
+				<Heading color="black">{HomePage.title}</Heading>
 				<Text color="#333">
 					Visit&nbsp;
 					<Link href="https://start.solidjs.com">start.solidjs.com</Link>&nbsp; to learn
@@ -20,4 +18,8 @@ export default function Home() {
 			</Container>
 		</main>
 	);
-}
+};
+
+HomePage.title = "SolidJS + Panda UI Starter";
+
+export default HomePage;
