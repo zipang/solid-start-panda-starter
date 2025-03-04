@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Link, Spacer, Text } from "@components/base";
+import { Heading, HStack, Link, Spacer, Text } from "@components/base";
 
 export const AppHeader = () => (
 	<HStack
