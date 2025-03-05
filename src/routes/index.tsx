@@ -1,12 +1,23 @@
 import { Title } from "@solidjs/meta";
 import { Container, Heading, Link, Text } from "@components/base";
 import { AppHeader } from "@components/app";
+import { HeroSection } from "@components/ui";
 
 const HomePage = () => {
 	return (
 		<main>
 			<AppHeader />
 			<Title>{HomePage.title}</Title>
+
+			<HeroSection
+				title={HomePage.title}
+				subtitle="Create something great"
+				backgroundImage={{
+					src: "/wintery-sunburst.svg",
+					mode: "cover",
+					position: "fixed"
+				}}
+			/>
 
 			<Container marginTop="100px">
 				<Heading color="black">{HomePage.title}</Heading>
