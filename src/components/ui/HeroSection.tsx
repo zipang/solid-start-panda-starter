@@ -17,7 +17,7 @@ export const HeroSection: Component<HeroSectionProps> = ({
 }) => (
 	<VStack as="section" class="hero-section" minHeight="90vh">
 		<Box as="hgroup" ml="30%">
-			<Heading as="h1" fontSize="4xl" color={textColor} class="hero-title">
+			<Heading as="h1" size="4xl" color={textColor} class="hero-title">
 				{title}
 			</Heading>
 			<Heading as="h2" size="xl" color={textColor} class="hero-subtitle">
