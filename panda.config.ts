@@ -1,5 +1,6 @@
 // panda.config.ts
 import { defineConfig } from "@pandacss/dev";
+import { fontSizes, textStyles } from "./src/theme/typography";
 
 export default defineConfig({
 	// Whether to use css reset
@@ -16,7 +17,12 @@ export default defineConfig({
 
 	// Useful for theme customization
 	theme: {
-		extend: {}
+		extend: {
+			tokens: {
+				fontSizes
+			},
+			textStyles
+		}
 	},
 
 	// The output directory for your css system
