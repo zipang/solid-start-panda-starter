@@ -14,8 +14,7 @@ const HomePage = () => {
 				subtitle="Create something great"
 				backgroundImage={{
 					src: "/wintery-sunburst.svg",
-					mode: "cover",
-					position: "fixed"
+					mode: "cover"
 				}}
 			/>
 
