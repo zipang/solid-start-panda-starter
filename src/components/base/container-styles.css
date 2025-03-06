@@ -6,10 +6,11 @@
 	padding: 1rem;
 	text-align: justify;
 }
+
 /* Responsive variants */
 @media (min-width: 768px /* var(--breakpoints-md) */) {
 	.container {
-		max-width: 70vw;
+		max-width: 65vw;
 	}
 }
 @media (min-width: 1280px /* var(--breakpoints-xl) */) {
