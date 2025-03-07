@@ -10,6 +10,7 @@
 		"version": "vinxi version"
 	},
 	"dependencies": {
+		"@solid-primitives/tween": "^1.4.0",
 		"@solidjs/meta": "^0.29.4",
 		"@solidjs/router": "^0.15.3",
 		"@solidjs/start": "^1.1.3",
@@ -20,6 +21,7 @@
 		"bun": ">=1.2.3"
 	},
 	"devDependencies": {
-		"@pandacss/dev": "^0.53.0"
+		"@pandacss/dev": "^0.53.1",
+		"sass": "^1.85.1"
 	}
 }
