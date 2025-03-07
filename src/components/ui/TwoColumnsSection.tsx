@@ -2,21 +2,19 @@ import { Component } from "solid-js";
 import { Container, Grid, VStack, type BoxProps } from "@components/base";
 
 export interface TwoColumnsSectionProps extends BoxProps {
-	columns: number;
 	gap?: number | string;
+	imageFit?: "cover" | "fit";
 }
 
 export const TwoColumnsSection: Component<TwoColumnsSectionProps> = ({
-	columns,
 	gap = "2rem",
+	imageFit = "fit",
 	children,
 	...more
 }) => (
 	<VStack as="section" class="two-columns-section" {...more}>
-		<Container>
-			<Grid columns={columns} gap={gap}>
-				{children}
-			</Grid>
-		</Container>
+		<Grid columns={2} gap={gap} imageFit={imageFit} my={gap}>
+			{children}
+		</Grid>
 	</VStack>
 );
