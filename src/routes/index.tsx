@@ -1,7 +1,7 @@
 import { Title } from "@solidjs/meta";
-import { Container, Heading, Link, Text } from "@components/base";
+import { Box, Container, Heading, Link, Text } from "@components/base";
 import { AppHeader } from "@components/app";
-import { HeroSection } from "@components/ui";
+import { BackgroundImage, HeroSection, TwoColumnsSection } from "@components/ui";
 
 const HomePage = () => {
 	return (
@@ -17,6 +17,19 @@ const HomePage = () => {
 					mode: "cover"
 				}}
 			/>
+
+			<TwoColumnsSection columns={2}>
+				<BackgroundImage src="/panda-logo.svg" />
+
+				<Box>
+					<Heading size="xxl">Panda CSS</Heading>
+					<Text>
+						Panda CSS is an incredible CSS-in-JS solution with no javascript in the
+						final build page. Panda CSS rely on a pre-compilation stage to generate only
+						the needed CSS class names in the final bundle.
+					</Text>
+				</Box>
+			</TwoColumnsSection>
 
 			<Container marginTop="100px">
 				<Heading color="black">{HomePage.title}</Heading>
