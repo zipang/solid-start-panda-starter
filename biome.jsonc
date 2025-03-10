@@ -1,0 +1,61 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
+	"files": { "ignoreUnknown": false, "ignore": [] },
+	"formatter": {
+		"enabled": true,
+		"useEditorconfig": true,
+		"formatWithErrors": false,
+		"indentStyle": "tab",
+		"indentWidth": 4,
+		"lineEnding": "lf",
+		"lineWidth": 100,
+		"attributePosition": "auto",
+		"bracketSpacing": true,
+		"ignore": [
+			"**/styled-system/**",
+			"**/public/**",
+			"**/node_modules/**",
+			"**/dist/**",
+			"packages/"
+		]
+	},
+	"organizeImports": { "enabled": true },
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+
+			"a11y": {
+				/** Screen readers announce img elements as "images", so it is not necessary to redeclare this in alternative text. */
+				"noRedundantAlt": "info"
+			},
+			"correctness": {
+				/* Usage of `key` is specific to React */
+				"useJsxKeyInIterable": "off"
+			},
+			"style": {
+				"noNonNullAssertion": "warn"
+			},
+			"suspicious": {
+				"noExplicitAny": "info",
+				/* Disable usage of React specific props like `className` */
+				"noReactSpecificProps": "error"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"trailingCommas": "none",
+			"semicolons": "always",
+			"arrowParentheses": "always",
+			"bracketSameLine": false,
+			"quoteStyle": "double",
+			"attributePosition": "auto",
+			"bracketSpacing": true
+		}
+	},
+	"overrides": [{ "include": ["*.astro"] }]
+}

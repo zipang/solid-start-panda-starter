@@ -3,7 +3,8 @@
 	"type": "module",
 	"scripts": {
 		"codegen": "bun panda codegen --clean",
-		"format": "bun prettier -w .",
+		"format": "bunx biome format --write .",
+		"lint": "bunx biome lint --write ./src",
 		"dev": "bun --bun vinxi dev",
 		"build:static": "bun --bun vinxi build",
 		"preview:static": "vinxi start",
@@ -21,7 +22,9 @@
 		"bun": ">=1.2.3"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
 		"@pandacss/dev": "^0.53.1",
+		"@types/bun": "^1.2.4",
 		"sass": "^1.85.1"
 	}
 }
