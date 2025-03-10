@@ -1,5 +1,5 @@
 import { MetaProvider, Title } from "@solidjs/meta";
-import { Component, JSX, Suspense } from "solid-js";
+import { type Component, type JSX, Suspense } from "solid-js";
 
 export interface AppLayoutProps {
 	title: string;

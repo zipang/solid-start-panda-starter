@@ -17,7 +17,9 @@ export const AppHeader = () => (
 			<Link href="/" aria-label="home">
 				<Heading>My App</Heading>
 			</Link>
-			<Text as="em">Create something great</Text>
+			<Text fontSize="md" as="em">
+				Create something great
+			</Text>
 		</HStack>
 		<Spacer />
 		<Link href="/login" preload={true} fontWeight="bolder" textDecoration="none">

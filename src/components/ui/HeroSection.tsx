@@ -1,5 +1,5 @@
-import { type Component } from "solid-js";
-import { Box, BoxProps, Heading, VStack } from "@components/base";
+import type { Component } from "solid-js";
+import { Box, type BoxProps, Heading, VStack } from "@components/base";
 import { withBackgroundImage, type BackgroundImageProps } from "./BackgroundImage";
 
 export interface HeroSectionProps extends Omit<BoxProps, "backgroundImage"> {

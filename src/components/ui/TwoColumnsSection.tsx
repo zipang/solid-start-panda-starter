@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import type { Component } from "solid-js";
 import { Container, Grid, VStack, type BoxProps } from "@components/base";
 
 export interface TwoColumnsSectionProps extends BoxProps {

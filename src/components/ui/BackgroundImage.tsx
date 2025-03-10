@@ -1,10 +1,10 @@
-import { Component, JSX, ParentComponent } from "solid-js";
+import { type Component, JSX, ParentComponent } from "solid-js";
 import { Box } from "@components/base";
 import "./background-image-styles.scss";
 
 export interface BackgroundImageProps {
 	src: string;
-	mode: "repeat" | "cover";
+	mode?: "repeat" | "cover";
 	fixed?: boolean;
 }
 

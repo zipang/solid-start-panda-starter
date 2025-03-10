@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import type { Component } from "solid-js";
 import { Box, type BoxProps } from "./Box";
 import "./grid-styles.scss";
 
@@ -8,7 +8,9 @@ const cols = ["", "", "two-columns", "three-columns", "four-columns"];
 export interface GridProps extends BoxProps {
 	columns: 1 | 2 | 3 | 4;
 	gap?: number | string;
-	// Tell how an image fit into a grid item
+	/**
+	 * Tell how an image fit into a grid item
+	 */
 	imageFit?: "cover" | "fit";
 }
 
@@ -21,7 +23,7 @@ export const Grid: Component<GridProps> = ({
 }) => {
 	const gridItems = Array.isArray(children) ? children : [children];
 	return (
-		<Box class={`grid ${cols[columns]}`} gap={gap} {...more}>
+		<Box class={`container grid ${cols[columns]}`} gap={gap} {...more}>
 			{gridItems.map((child) => (
 				<div class={`grid-item image-${imageFit}`}>{child}</div>
 			))}

@@ -10,11 +10,11 @@
 /* Responsive variants */
 @media (min-width: 768px /* var(--breakpoints-md) */) {
 	.container {
-		max-width: 65vw;
+		max-width: 75vw;
 	}
 }
 @media (min-width: 1280px /* var(--breakpoints-xl) */) {
 	.container {
-		max-width: 75ch;
+		max-width: 85ch;
 	}
 }

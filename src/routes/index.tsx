@@ -21,14 +21,14 @@ const HomePage = () => {
 			<TwoColumnsSection columns={2}>
 				<BackgroundImage src="/panda-logo.svg" />
 
-				<Box>
+				<>
 					<Heading size="xxl">Panda CSS</Heading>
 					<Text>
 						Panda CSS is an incredible CSS-in-JS solution with no javascript in the
 						final build page. Panda CSS rely on a pre-compilation stage to generate only
 						the needed CSS class names in the final bundle.
 					</Text>
-				</Box>
+				</>
 			</TwoColumnsSection>
 
 			<Container marginTop="100px">
