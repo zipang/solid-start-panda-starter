@@ -6,3 +6,6 @@ styled-system-studio
 .output
 .vinxi
 node_modules
+
+.env
+.env.local
