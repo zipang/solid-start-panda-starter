@@ -15,7 +15,7 @@
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
         "@pandacss/dev": "^0.53.1",
-        "@types/bun": "^1.2.4",
+        "@types/bun": "^1.2.5",
         "sass": "^1.85.1",
       },
     },

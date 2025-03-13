@@ -20,7 +20,7 @@
 		"vinxi": "^0.5.3"
 	},
 	"engines": {
-		"bun": ">=1.2.3"
+		"bun": ">=1.2.5"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
