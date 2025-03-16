@@ -1,0 +1,17 @@
+@keyframes spinner-animation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.spinner {
+	display: inline-block;
+	border: 2px solid currentcolor;
+	border-radius: 99999px;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	animation: 0.45s linear 0s infinite normal none running spinner-animation;
+}
