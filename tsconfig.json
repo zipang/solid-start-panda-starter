@@ -12,6 +12,7 @@
 		"noEmit": true,
 		"types": ["vinxi/types/client", "@pandacss/types"],
 		"isolatedModules": true,
+		"skipLibCheck": true,
 		"paths": {
 			"@/*": ["./src/*"],
 			"@components/*": ["./src/components/*"],
