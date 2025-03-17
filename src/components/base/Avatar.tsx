@@ -3,21 +3,24 @@ import { Box } from "@components/base";
 import { BackgroundImage } from "@components/ui";
 
 export interface AvatarProps {
+	name: string;
 	image?: string;
-	title: string;
 	size?: string | number;
 }
 
-export const Avatar: Component<AvatarProps> = ({ image, title = "?", size = "3rem" }) => (
+export const Avatar: Component<AvatarProps> = ({ name = "?", image, size = "3rem" }) => (
 	<Box class="avatar" height={size} width={size}>
-		<Show when={image} fallback={extractInitials(title)}>
-			<BackgroundImage crossOrigin="anonymous" src={image} alt={title} />
+		<Show when={image} fallback={extractInitials(name)}>
+			<BackgroundImage crossOrigin="anonymous" src={image} alt={name} />
 		</Show>
 	</Box>
 );
 
-function extractInitials(title: string) {
-	return title
+/**
+ * Extract initials from a user's name
+ */
+function extractInitials(name: string) {
+	return name
 		.split(" ")
 		.map((word) => word[0].toUpperCase())
 		.join(" ");

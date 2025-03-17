@@ -13,7 +13,7 @@ export const UserActions: Component = () => {
 	return (
 		<Show when={session.user} fallback={<LoginButton />}>
 			{/* @ts-expect-error session.user is possibly null */}
-			<Avatar image={session.user.image} title={session.user.name} />
+			<Avatar image={session.user.image} name={session.user.name} />
 		</Show>
 	);
 };
