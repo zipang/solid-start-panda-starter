@@ -1,4 +1,5 @@
 import { Heading, HStack, Link, Spacer, Text } from "@components/base";
+import { UserActions } from "@components/auth/UserActions";
 
 export const AppHeader = () => (
 	<HStack
@@ -22,8 +23,6 @@ export const AppHeader = () => (
 			</Text>
 		</HStack>
 		<Spacer />
-		<Link href="/login" preload={true} fontWeight="bolder" textDecoration="none">
-			LOGIN
-		</Link>
+		<UserActions />
 	</HStack>
 );

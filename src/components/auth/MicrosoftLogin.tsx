@@ -1,19 +1,19 @@
 import { Button } from "@components/base";
 import { authClient } from "@lib/auth-client";
-import { GoogleLogo } from "@components/icons";
+import { MicrosoftLogo } from "@components/icons";
 
 const signIn = async () => {
 	await authClient.signIn.social({
-		provider: "google",
+		provider: "microsoft",
 		callbackURL: "/dashboard"
 	});
 };
 
-export const GoogleLogin = () => {
+export const MicrosoftLogin = () => {
 	return (
 		<Button variant="outline" on:click={signIn} loadingText="Signing in..." width="100%">
-			<GoogleLogo />
-			&nbsp; Sign in with Google
+			<MicrosoftLogo />
+			&nbsp; Sign in with Microsoft
 		</Button>
 	);
 };

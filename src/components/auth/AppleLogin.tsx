@@ -1,19 +1,19 @@
 import { Button } from "@components/base";
 import { authClient } from "@lib/auth-client";
-import { GoogleLogo } from "@components/icons";
+import { AppleLogo } from "@components/icons";
 
 const signIn = async () => {
 	await authClient.signIn.social({
-		provider: "google",
+		provider: "apple",
 		callbackURL: "/dashboard"
 	});
 };
 
-export const GoogleLogin = () => {
+export const AppleLogin = () => {
 	return (
 		<Button variant="outline" on:click={signIn} loadingText="Signing in..." width="100%">
-			<GoogleLogo />
-			&nbsp; Sign in with Google
+			<AppleLogo />
+			&nbsp; Sign in with Apple
 		</Button>
 	);
 };
