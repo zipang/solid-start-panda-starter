@@ -1,54 +1,76 @@
 .button {
-    display: inline-flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
-    text-align: center;
-    
-    font-weight: 500;
-    text-transform: uppercase;
-    white-space: nowrap;
-    appearance: none;
-    border-radius: 0;
-    border: 2px solid black;
-    cursor: pointer;
-    outline: none;
-    isolation: isolate;
-    position: relative;
+	display: inline-flex;
+	align-items: center;
+	vertical-align: middle;
+	justify-content: center;
+	text-align: center;
 
-    user-select: none;
+	font-weight: 500;
+	text-transform: uppercase;
+	white-space: nowrap;
+	appearance: none;
+	border-radius: 0;
+	border: 2px solid #222;
+	cursor: pointer;
+	outline: none;
+	isolation: isolate;
+	position: relative;
 
-    &.hidden {
-        display: none;
-    }
+	user-select: none;
 
-    & :where(svg) {
-        font-size: 1.1em;
-        width: 1.1em;
-        height: 1.1em;
-    }   
+	&.hidden {
+		display: none;
+	}
 
-    &.md {
-        font-size: 1rem;
-        padding: 0.3rem 2rem;
-    }
-    &.lg {
-        font-size: 1.1rem;
-        padding: 0.4rem 2.5rem;
-    }
+	& :where(svg) {
+		font-size: 1.1em;
+		width: 1.1em;
+		height: 1.1em;
+	}
 
-    &.xl {
-        font-size: 1.25rem;
-        padding: 0.5rem 3rem;
-    }
-    &.xxl {
-        font-size: 1.5rem;
-        padding: 0.6rem 4rem;
-    }
+	&.outline {
+		background-color: white;
+		border: 2px solid #333;
+		&:hover,
+		&:focus {
+			border: 2px solid #fc0;
+		}
+	}
 
-    &.loading, &.disabled {
-        opacity: 0.8;
-        cursor: not-allowed;
-    }
+	&.solid {
+		background-color: hsl(55 50% 100%);
+		border-color: hsl(55 50% 100%);
+		&:hover,
+		&:focus {
+			background-color: hsl(55 55% 100%);
+		}
+	}
 
+	&.link {
+		background-color: transparent;
+	}
+
+	&.md {
+		font-size: 1rem;
+		padding: 0.3rem 2rem;
+	}
+	&.lg {
+		font-size: 1.1rem;
+		padding: 0.4rem 2.5rem;
+	}
+
+	&.xl {
+		font-size: 1.25rem;
+		padding: 0.5rem 3rem;
+	}
+	&.xxl {
+		font-size: 1.5rem;
+		padding: 0.6rem 4rem;
+	}
+
+	&.loading,
+	&.disabled {
+		opacity: 0.8;
+		cursor: not-allowed;
+	}
 }
