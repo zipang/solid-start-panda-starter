@@ -1,8 +1,25 @@
 .avatar {
 	overflow: hidden;
 	position: relative;
+	border: 4px solid transparent;
+	cursor: pointer;
+
+	> .initials {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: #fc0;
+		color: black;
+		font-weight: 500;
+		font-family: sans-serif;
+	}
 
 	&.rounded {
 		border-radius: 50%;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: #fc0;
 	}
 }

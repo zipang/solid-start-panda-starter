@@ -6,6 +6,10 @@ body {
 	margin: 0;
 }
 
+* {
+	outline: none;
+}
+
 a,
 a:visited,
 a:active {

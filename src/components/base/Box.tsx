@@ -14,6 +14,7 @@ export interface BoxProps extends HTMLStyledProps<"div"> {
 		| "article"
 		| "aside"
 		| "blockquote"
+		| "button"
 		| "footer"
 		| "header"
 		| "hgroup"
