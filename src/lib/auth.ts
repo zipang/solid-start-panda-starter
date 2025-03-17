@@ -9,6 +9,13 @@ if (!GITHUB_CLIENT_ID || !GITHUB_CLIENT_SECRET || !GOOGLE_CLIENT_ID || !GOOGLE_C
 
 export const auth = betterAuth({
 	basePath: "/api/auth",
+	session: {
+		// @see https://www.better-auth.com/docs/guides/optimizing-for-performance#cookie-cache
+		cookieCache: {
+			enabled: true,
+			maxAge: 5 * 60, // Cache duration in seconds
+		}
+	},
 	socialProviders: {
 		github: {
 			clientId: GITHUB_CLIENT_ID,
