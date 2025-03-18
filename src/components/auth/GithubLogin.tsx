@@ -1,19 +1,17 @@
-import { Button } from "@components/base";
-import { authClient } from "@lib/auth-client";
+import type { Component } from "solid-js";
+import { Button, type ButtonProps } from "@components/base";
+import { githubSignIn } from "@lib/Session";
 import { GithubLogo } from "@components/icons";
 
-const signIn = async () => {
-	await authClient.signIn.social({
-		provider: "github",
-		callbackURL: "/dashboard"
-	});
-};
-
-export const GithubLogin = () => {
-	return (
-		<Button variant="outline" on:click={signIn} loadingText="Signing in..." width="100%">
-			<GithubLogo />
-			&nbsp; Sign in with Github
-		</Button>
-	);
-};
+export const GithubLogin: Component<ButtonProps> = (props) => (
+	<Button
+		variant="outline"
+		loadingText="Signing in..."
+		width="100%"
+		{...props}
+		on:click={githubSignIn}
+	>
+		<GithubLogo />
+		&nbsp;Sign in with Github
+	</Button>
+);

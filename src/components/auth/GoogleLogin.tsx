@@ -1,19 +1,17 @@
-import { Button } from "@components/base";
-import { authClient } from "@lib/auth-client";
+import type { Component } from "solid-js";
+import { Button, type ButtonProps } from "@components/base";
+import { googleSignIn } from "@lib/Session";
 import { GoogleLogo } from "@components/icons";
 
-const signIn = async () => {
-	await authClient.signIn.social({
-		provider: "google",
-		callbackURL: "/dashboard"
-	});
-};
-
-export const GoogleLogin = () => {
-	return (
-		<Button variant="outline" on:click={signIn} loadingText="Signing in..." width="100%">
-			<GoogleLogo />
-			&nbsp; Sign in with Google
-		</Button>
-	);
-};
+export const GoogleLogin: Component<ButtonProps> = (props) => (
+	<Button
+		variant="outline"
+		loadingText="Signing in..."
+		width="100%"
+		{...props}
+		on:click={googleSignIn}
+	>
+		<GoogleLogo />
+		&nbsp; Sign in with Google
+	</Button>
+);
