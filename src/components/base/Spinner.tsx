@@ -1,4 +1,4 @@
-import { type Component } from "solid-js";
+import type { Component } from "solid-js";
 import { Box } from "@components/base";
 import "./spinner-styles.css";
 
