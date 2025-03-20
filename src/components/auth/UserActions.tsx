@@ -1,9 +1,14 @@
 import { Show, type Component } from "solid-js";
 import { Avatar, Link } from "@components/base";
-import { useSession } from "@lib/SessionContext";
+import { useSession } from "@lib/Session";
 
 export const LoginButton: Component = () => (
-	<Link href="/login" preload={true} fontWeight="bolder" textDecoration="none">
+	<Link
+		href="/login?redirect=/dashboard"
+		preload={true}
+		fontWeight="bolder"
+		textDecoration="none"
+	>
 		LOGIN
 	</Link>
 );
