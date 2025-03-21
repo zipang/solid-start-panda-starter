@@ -90,7 +90,6 @@ const SESSION_CONTEXT = createContext<SessionContext>(EMPTY_SESSION_CONTEXT);
 
 export const useSession = () => {
 	if (isServer) {
-		console.log("Returning EMPTY_SESSION for server");
 		return EMPTY_SESSION_CONTEXT;
 	}
 
@@ -114,8 +113,8 @@ export const SessionProvider: ParentComponent = (props) => {
 	const user = () => observableSession.user;
 
 	const signOut = async () => {
-		setObservableSession(EMPTY_SESSION);
 		authClient.signOut();
+		setObservableSession({ ...EMPTY_SESSION });
 	};
 
 	const session = ({ forceRefresh = false }) => {
