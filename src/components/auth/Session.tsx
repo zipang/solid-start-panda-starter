@@ -1,23 +1,18 @@
-import { lazy, type ParentComponent, Show, type Component, type ComponentProps } from "solid-js";
-import { useSession, setSession, type Session } from "@lib/SessionContext";
+import { lazy, Show, type Component } from "solid-js";
+import { useSession } from "./SessionProvider";
 
-type ProtectedRouteHOC = (c: Component) => Component;
+type ProtectedRouteHOC<P extends Record<string, any>> = (c: Component<P>) => Component<P>;
 
-const LoginPage = lazy(() => import("@routes/login"));
+const Login = lazy(() => import("@routes/login"));
 
-export const protectedRoute: ProtectedRouteHOC =
-	(RouteComponent) => (props: ComponentProps<typeof RouteComponent>) => {
-		const session = useSession();
+export const protected$: ProtectedRouteHOC<Record<string, any>> = (RouteComponent) => (props) => {
+	const session = useSession();
 
-		return (
-			<Show when={session} fallback={<LoginPage />}>
-				<Show when={session.user} fallback={<div>Loading session...</div>}>
-					<RouteComponent {...props} />
-				</Show>
+	return (
+		<Show when={!session.isEmpty()} fallback={<Login />}>
+			<Show when={session.isLive()} fallback={<div>Loading session...</div>}>
+				<RouteComponent {...props} />
 			</Show>
-		);
-	};
-
-// export const SessionProvider: ParentComponent = ({ children }) => (
-// 	<SessionContext.Provider value={{ setSession, useSession }}>{children}</SessionContext.Provider>
-// );
+		</Show>
+	);
+};
