@@ -28,7 +28,9 @@
 
 			"a11y": {
 				/** Screen readers announce img elements as "images", so it is not necessary to redeclare this in alternative text. */
-				"noRedundantAlt": "info"
+				"noRedundantAlt": "info",
+				/* Sometimes if we do not use the semantic element (like button) it's for a reason.. (rendering) */
+				"useSemanticElements": "info"
 			},
 			"correctness": {
 				/* Usage of `key` is specific to React */
