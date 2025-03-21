@@ -6,7 +6,7 @@ const SECRETS = [
 	"GOOGLE_CLIENT_ID",
 	"GOOGLE_CLIENT_SECRET"
 ];
-const missingSecrets = SECRETS.filter((secret) => !process.env[secret]);
+const missingSecrets = SECRETS.filter((secret) => !(secret in process.env));
 
 if (missingSecrets.length > 0) {
 	throw new Error(
@@ -14,8 +14,12 @@ if (missingSecrets.length > 0) {
 	);
 }
 
-const { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } =
-	process.env;
+const {
+	GITHUB_CLIENT_ID = "unknown",
+	GITHUB_CLIENT_SECRET = "unknown",
+	GOOGLE_CLIENT_ID = "unknown",
+	GOOGLE_CLIENT_SECRET = "unknown"
+} = process.env;
 
 export const auth = betterAuth({
 	basePath: "/api/auth",
