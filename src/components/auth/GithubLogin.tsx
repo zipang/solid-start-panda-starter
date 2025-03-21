@@ -1,6 +1,6 @@
 import type { Component } from "solid-js";
 import { Button, type ButtonProps } from "@components/base";
-import { githubSignIn } from "@lib/Session";
+import { githubSignIn } from "@lib/social-login";
 import { GithubLogo } from "@components/icons";
 
 export const GithubLogin: Component<ButtonProps> = (props) => (

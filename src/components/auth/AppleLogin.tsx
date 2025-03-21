@@ -1,6 +1,6 @@
 import type { Component } from "solid-js";
 import { Button, type ButtonProps } from "@components/base";
-import { appleSignIn } from "@lib/Session";
+import { appleSignIn } from "@lib/social-login";
 import { AppleLogo } from "@components/icons";
 
 export const AppleLogin: Component<ButtonProps> = (props) => (

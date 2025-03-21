@@ -1,6 +1,6 @@
 import type { Component } from "solid-js";
 import { Button, type ButtonProps } from "@components/base";
-import { googleSignIn } from "@lib/Session";
+import { googleSignIn } from "@lib/social-login";
 import { GoogleLogo } from "@components/icons";
 
 export const GoogleLogin: Component<ButtonProps> = (props) => (
