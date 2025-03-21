@@ -5,14 +5,14 @@ import { BackgroundImage } from "@components/ui";
 import "./avatar-styles.scss";
 
 export interface AvatarProps {
-	name: string;
+	name?: string;
 	image?: string;
 	size?: string | number;
 	variant?: "rounded" | "square";
 }
 
 export const Avatar: Component<AvatarProps> = ({
-	name,
+	name = "?",
 	image,
 	size = "3rem",
 	variant = "rounded"

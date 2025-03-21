@@ -1,5 +1,5 @@
 import { Heading, HStack, Link, Spacer, Text } from "@components/base";
-import { UserActions } from "@components/auth/UserActions";
+import { UserActions } from "@components/auth";
 
 export const AppHeader = () => (
 	<HStack

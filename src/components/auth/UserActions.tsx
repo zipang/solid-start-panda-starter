@@ -13,6 +13,10 @@ export const LoginButton: Component = () => (
 	</Link>
 );
 
+/**
+ * Display an Avatar for the currently logged User
+ * or the LOGIN button
+ */
 export const UserActions: Component = () => {
 	const session = useSession();
 
@@ -26,16 +30,7 @@ export const UserActions: Component = () => {
 	return (
 		<Show when={!session.isEmpty()} fallback={<LoginButton />}>
 			<Show when={session.isLive()} fallback={<div>Loading...</div>}>
-				<Avatar
-					image={
-						/* @ts-expect-error session().user is possibly null */
-						session.user().image
-					}
-					name={
-						/* @ts-expect-error session().user is possibly null */
-						session.user().name
-					}
-				/>
+				<Avatar image={session.user()?.image} name={session.user()?.name} />
 			</Show>
 		</Show>
 	);
