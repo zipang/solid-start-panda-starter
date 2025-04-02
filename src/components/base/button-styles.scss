@@ -1,3 +1,5 @@
+@import "../../app.css";
+
 .button {
 	display: inline-flex;
 	align-items: center;
@@ -10,7 +12,6 @@
 	white-space: nowrap;
 	appearance: none;
 	border-radius: 0;
-	border: 2px solid #222;
 	cursor: pointer;
 	outline: none;
 	isolation: isolate;
@@ -33,21 +34,22 @@
 		border: 2px solid #333;
 		&:hover,
 		&:focus {
-			border: 2px solid #fc0;
+			border: 2px solid var(--colors-warning);
 		}
 	}
 
 	&.solid {
-		background-color: hsl(55 50% 100%);
-		border-color: hsl(55 50% 100%);
+		background-color: var(--colors-warning);
+		border: 2px solid var(--colors-warning);
 		&:hover,
 		&:focus {
-			background-color: hsl(55 55% 100%);
+			background-color: var(--colors-warning-highlight);
 		}
 	}
 
 	&.link {
 		background-color: transparent;
+		border: none;
 	}
 
 	&.md {

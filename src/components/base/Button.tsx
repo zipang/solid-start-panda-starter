@@ -1,7 +1,7 @@
 // src/components/base/Button.tsx
 
 import { styled, type HTMLStyledProps } from "@styled-system/jsx";
-import { createSignal, Show, splitProps, type Component } from "solid-js";
+import { createSignal, mergeProps, Show, splitProps, type Component } from "solid-js";
 import { Spinner } from "./Spinner";
 
 import "./button-styles.scss";
@@ -18,10 +18,18 @@ export interface ButtonProps extends HTMLStyledProps<"div"> {
 	size?: "md" | "lg" | "xl" | "xxl";
 }
 
+const _DEFAULTS = {
+	size: "md",
+	variant: "solid",
+	loadingText: "Loading...",
+	disabled: false,
+	loading: false
+};
+
 const StyledButton = styled("button") as Component<ButtonProps>;
 
-export const Button: Component<ButtonProps> = (props) => {
-	const [localProps, rest] = splitProps(props, [
+export const Button: Component<ButtonProps> = (incoming) => {
+	const [props, rest] = splitProps(mergeProps(_DEFAULTS, incoming), [
 		"on:click",
 		"onClick",
 		"loading",
@@ -31,13 +39,12 @@ export const Button: Component<ButtonProps> = (props) => {
 		"size",
 		"variant"
 	]);
-	const { loading, disabled, loadingText, children, size = "md", variant = "solid" } = localProps;
 
-	const [isLoading, setIsLoading] = createSignal(loading);
+	const [isLoading, setIsLoading] = createSignal(props.loading);
 
-	const trulyDisabled = () => Boolean(isLoading() || disabled);
+	const trulyDisabled = () => Boolean(isLoading() || props.disabled);
 
-	const _clickHandler = localProps["on:click"] || localProps.onClick;
+	const _clickHandler = props["on:click"] || props.onClick;
 
 	const click = async (evt: MouseEvent) => {
 		if (trulyDisabled() || !_clickHandler) {
@@ -53,16 +60,15 @@ export const Button: Component<ButtonProps> = (props) => {
 
 	return (
 		<StyledButton
-			class={`button ${variant} ${size}`}
-			classList={{ loading: isLoading() }}
+			class={`button ${props.variant} ${props.size} ${trulyDisabled() ? "disabled" : ""} ${props.loading || props.loading ? "loading" : ""}`}
 			disabled={trulyDisabled()}
 			onClick={click}
 			{...rest}
 		>
-			<Show when={isLoading()} fallback={children}>
+			<Show when={isLoading()} fallback={props.children}>
 				<Spinner />
 				&nbsp;
-				{loadingText}
+				{props.loadingText}
 			</Show>
 		</StyledButton>
 	);
