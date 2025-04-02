@@ -16,9 +16,10 @@
 		"paths": {
 			"@components/*": ["./src/components/*"],
 			"@lib/*": ["./src/lib/*"],
-			"@theme/*": ["./src/theme/*"],
 			"@routes/*": ["./src/routes/*"],
-			"@styled-system/*": ["./styled-system/*"]
+			"@styled-system/*": ["./styled-system/*"],
+			"@theme/*": ["./src/theme/*"],
+			"@utils/*": ["./src/utils/*"]
 		}
 	}
 }

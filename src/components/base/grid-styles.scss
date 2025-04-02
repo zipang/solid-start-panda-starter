@@ -1,6 +1,7 @@
 .grid {
 	display: grid;
 
+	// Column mode is only enabled when the screen is large enough
 	@media (min-width: 640px) {
 		&.two-columns {
 			grid-template-columns: repeat(2, 1fr);
@@ -14,7 +15,6 @@
 	}
 
 	.grid-item {
-		min-width: 20rem;
 		position: relative;
 		overflow: hidden;
 

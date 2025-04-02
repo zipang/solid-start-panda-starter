@@ -1,4 +1,7 @@
-import type { Component } from "solid-js";
+import { type Component, For, mergeProps, splitProps } from "solid-js";
+import type { SystemProperties } from "@styled-system/types";
+import { makeArray } from "@utils/array-utils";
+import { AspectRatio } from "./AspectRatio";
 import { Box, type BoxProps } from "./Box";
 import "./grid-styles.scss";
 
@@ -7,26 +10,43 @@ const cols = ["", "", "two-columns", "three-columns", "four-columns"];
 
 export interface GridProps extends BoxProps {
 	columns: 1 | 2 | 3 | 4;
-	gap?: number | string;
+	gap?: SystemProperties["gap"];
 	/**
-	 * Tell how an image fit into a grid item
+	 * Define the grid items proportions
+	 * @default 4/3
 	 */
-	imageFit?: "cover" | "fit";
+	aspectRatio?: number;
+	/**
+	 * Tell how an image or video fits into a grid item
+	 */
+	imageFit?: "cover" | "fill" | "contain";
 }
 
-export const Grid: Component<GridProps> = ({
-	columns = 3,
-	gap = "2rem",
-	imageFit = "fit",
-	children,
-	...more
-}) => {
-	const gridItems = Array.isArray(children) ? children : [children];
+const _DEFAULTS = {
+	columns: 3,
+	gap: "2rem",
+	aspectRatio: 4 / 3,
+	imageFit: "cover"
+} as GridProps;
+
+export const Grid: Component<GridProps> = (incoming) => {
+	const props = mergeProps(_DEFAULTS, incoming);
+
+	const [, rest] = splitProps(props, ["children", "columns", "gap", "aspectRatio", "imageFit"]);
+
 	return (
-		<Box class={`container grid ${cols[columns]}`} gap={gap} {...more}>
-			{gridItems.map((child) => (
-				<div class={`grid-item image-${imageFit}`}>{child}</div>
-			))}
+		<Box class={`container grid ${cols[props.columns]}`} gap={props.gap} {...rest}>
+			<For each={makeArray(props.children)}>
+				{(item) => (
+					<AspectRatio
+						class="grid-item"
+						imageFit={props.imageFit}
+						ratio={props.aspectRatio}
+					>
+						{item}
+					</AspectRatio>
+				)}
+			</For>
 		</Box>
 	);
 };
