@@ -1,39 +1,43 @@
-import { Show, type Component } from "solid-js";
-import { Box, VStack } from "@components/base";
+import { type Component, createMemo, mergeProps, Show } from "solid-js";
+import { Box, type BoxProps, VStack } from "@components/base";
 import { BackgroundImage } from "@components/ui";
 
 import "./avatar-styles.scss";
 
-export interface AvatarProps {
+export interface AvatarProps extends BoxProps {
 	name?: string;
 	image?: string;
-	size?: string | number;
+	size?: "sm" | "md" | "lg" | "xl" | "xxl";
 	variant?: "rounded" | "square";
 }
 
-export const Avatar: Component<AvatarProps> = ({
-	name = "?",
-	image,
-	size = "3rem",
-	variant = "rounded"
-}) => (
-	<Box
-		role="button"
-		class={`avatar ${variant}`}
-		height={size}
-		width={size}
-		tabIndex={0}
-		title={`Logged in as ${name}`}
-	>
-		<Show when={image} fallback={<Initials name={name} />}>
-			<BackgroundImage crossOrigin="anonymous" src={image} alt={name} />
-		</Show>
-	</Box>
-);
+const _DEFAULTS = {
+	name: "?",
+	size: "md",
+	variant: "rounded"
+};
 
-export const Initials = ({ name = "?" }) => (
-	<VStack class="initials">{extractInitials(name)}</VStack>
-);
+export const Avatar: Component<AvatarProps> = (incoming) => {
+	const props = mergeProps(_DEFAULTS, incoming);
+
+	return (
+		<Box
+			role="button"
+			class={`avatar ${props.variant} ${props.size}`}
+			tabIndex={0}
+			title={`${props.name}`}
+		>
+			<Show when={props.image} fallback={<Initials name={props.name} />}>
+				<BackgroundImage crossOrigin="anonymous" src={props.image} alt={props.name} />
+			</Show>
+		</Box>
+	);
+};
+
+export const Initials: Component<{ name: string }> = (props) => {
+	const initials = createMemo(() => extractInitials(props.name));
+	return <VStack class="initials">{initials()}</VStack>;
+};
 
 /**
  * Extract initials from a user's name
@@ -41,6 +45,7 @@ export const Initials = ({ name = "?" }) => (
 function extractInitials(name: string) {
 	return name
 		.split(" ")
+		.filter(Boolean) // Handle empty words
 		.map((word) => word[0].toUpperCase())
-		.join(" ");
+		.join("");
 }
