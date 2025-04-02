@@ -1,30 +1,33 @@
 // panda.config.ts
 import { defineConfig } from "@pandacss/dev";
 import { fontSizes, textStyles } from "./src/theme/typography";
+import { colors } from "./src/theme/colors";
 
 export default defineConfig({
 	// Whether to use css reset
 	preflight: false, // We'll use Pico CSS instead
 
 	// Where to look for your css declarations
-	include: ["./src/**/*.{js,jsx,ts,tsx}"],
+	// Gemini: could you change the regex to include .stories as well?
+	include: ["./src/**/*.{ts,tsx,stories.ts,stories.tsx}"],
 
 	// Files to exclude
 	exclude: [],
 
-	// Generate CSS props for JSX framework
+	// JSX framework
 	jsxFramework: "solid",
 
-	// Useful for theme customization
+	// Theme customization
 	theme: {
 		extend: {
 			tokens: {
+				colors,
 				fontSizes
 			},
 			textStyles
 		}
 	},
 
-	// The output directory for your css system
+	// Output directory for `panda codegen`
 	outdir: "styled-system"
 });
