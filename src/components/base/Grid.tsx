@@ -25,7 +25,6 @@ export interface GridProps extends BoxProps {
 const _DEFAULTS = {
 	columns: 3,
 	gap: "2rem",
-	aspectRatio: 4 / 3,
 	imageFit: "cover"
 } as GridProps;
 

@@ -16,7 +16,6 @@ export interface AspectRatioProps extends BoxProps {
 
 const _DEFAULTS = {
 	class: "",
-	ratio: 4 / 3,
 	imageFit: "cover"
 };
 
@@ -34,6 +33,14 @@ export const AspectRatio: Component<AspectRatioProps> = (incoming) => {
 		"imageFit",
 		"ratio"
 	]);
+
+	if (!props.ratio) {
+		return (
+			<Box class={`image-${props.imageFit} ${props.class}`} {...rest}>
+				{props.children}
+			</Box>
+		);
+	}
 
 	return (
 		<Box
