@@ -1,14 +1,14 @@
 import type { Component } from "solid-js";
-import { Container, Grid, VStack, type BoxProps } from "@components/base";
+import { Grid, VStack, type BoxProps } from "@components/base";
 
 export interface TwoColumnsSectionProps extends BoxProps {
 	gap?: number | string;
-	imageFit?: "cover" | "fit";
+	imageFit?: "cover" | "fill";
 }
 
 export const TwoColumnsSection: Component<TwoColumnsSectionProps> = ({
 	gap = "2rem",
-	imageFit = "fit",
+	imageFit = "fill",
 	children,
 	...more
 }) => (
