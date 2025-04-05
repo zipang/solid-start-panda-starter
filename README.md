@@ -20,6 +20,13 @@ bunx degit zipang/solid-start-panda-starter
 
 Install the dependencies with `bun install`
 
+## Configure
+
+### Authentication
+
+We use secrets to handle authentication with 3rd party services like Github or Google.
+The environment file `.env.sample` can be copied and edited with real values as `.env.local` for local dev and .env.prod for.. deployment.
+
 ## Develop!
 
 Start the development server:
