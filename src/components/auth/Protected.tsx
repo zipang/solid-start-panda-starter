@@ -1,8 +1,13 @@
-import { lazy, Show, type Component } from "solid-js";
-import { useSession } from "./SessionProvider";
+import { Match, Switch, type Component } from "solid-js";
 import { useLocation, useNavigate } from "@solidjs/router";
+import { useSession } from "./SessionProvider";
+import { isServer } from "solid-js/web";
 
-type ProtectedRouteHOC<P extends Record<string, any>> = (c: Component<P>) => Component<P>;
+export interface ProtectedRouteProps extends Record<string, any> {
+	loading?: boolean;
+}
+
+type ProtectedRouteHOC<P extends ProtectedRouteProps> = (c: Component<P>) => Component<P>;
 
 /**
  * When the session is not live, we must redirect to the login page
@@ -18,12 +23,16 @@ const RedirectToLogin = () => {
 
 export const protected$: ProtectedRouteHOC<Record<string, any>> = (RouteComponent) => (props) => {
 	const session = useSession();
+	session.refresh();
 
 	return (
-		<Show when={!session.isEmpty()} fallback={<RedirectToLogin />}>
-			<Show when={session.isLive()} fallback={<div>Loading session...</div>}>
+		<Switch fallback={<RedirectToLogin />}>
+			<Match when={isServer || session.isPending()}>
+				<RouteComponent {...props} loading />
+			</Match>
+			<Match when={session.isLive()}>
 				<RouteComponent {...props} />
-			</Show>
-		</Show>
+			</Match>
+		</Switch>
 	);
 };
