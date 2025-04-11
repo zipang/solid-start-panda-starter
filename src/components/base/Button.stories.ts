@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "storybook-solidjs";
 
 import { Button } from "./Button";
-import { load } from "../../../packages/cm-markdown-editor/public/chunk-rwbfn6jj";
 
 const asyncAction = async () => new Promise((resolve) => setTimeout(() => resolve("Done"), 1000));
 
