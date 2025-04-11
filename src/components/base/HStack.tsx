@@ -3,6 +3,7 @@ import { Box, type BoxProps } from "./Box";
 export const defaultHstackProps = {
 	display: "flex",
 	flexDirection: "row",
+	flexWrap: "wrap",
 	gap: 10,
 	alignItems: "center",
 	justifyContent: "center"
