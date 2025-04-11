@@ -1,4 +1,4 @@
-import type { Component } from "solid-js";
+import { mergeProps, type Component } from "solid-js";
 import { Box } from "@components/base";
 import "./spinner-styles.css";
 
@@ -8,10 +8,21 @@ export interface SpinnerProps {
 	color?: string;
 }
 
-export const Spinner: Component<SpinnerProps> = ({
-	size = "1rem",
-	thickness = "2px",
-	color = "currentcolor"
-}) => (
-	<Box class="spinner" height={size} width={size} borderWidth={thickness} borderColor={color} />
-);
+const _DEFAULTS = {
+	size: "1rem",
+	thickness: "2px",
+	color: "currentcolor"
+} as SpinnerProps;
+
+export const Spinner: Component<SpinnerProps> = (incoming) => {
+	const props = mergeProps(_DEFAULTS, incoming);
+	return (
+		<Box
+			class="spinner"
+			height={props.size}
+			width={props.size}
+			borderWidth={props.thickness}
+			borderColor={props.color}
+		/>
+	);
+};
