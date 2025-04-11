@@ -20,13 +20,6 @@ export const LoginButton: Component = () => (
 export const UserActions: Component = () => {
 	const session = useSession();
 
-	createEffect(() => {
-		if (session.isEmpty()) {
-			console.log("Call session refresh");
-			session.refresh();
-		}
-	});
-
 	return (
 		<Show when={!session.isEmpty()} fallback={<LoginButton />}>
 			<Show when={session.isLive()} fallback={<div>Loading...</div>}>
