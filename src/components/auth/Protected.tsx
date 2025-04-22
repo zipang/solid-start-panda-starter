@@ -1,6 +1,6 @@
 import { Match, Switch, type Component } from "solid-js";
 import { useLocation, useNavigate } from "@solidjs/router";
-import { useSession } from "./SessionProvider";
+import { useSession } from "./Session";
 import { isServer } from "solid-js/web";
 
 export interface ProtectedRouteProps extends Record<string, any> {
