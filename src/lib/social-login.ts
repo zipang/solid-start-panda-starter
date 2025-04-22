@@ -1,5 +1,5 @@
 import { authClient } from "./auth-client";
-import { useSession } from "@components/auth/SessionProvider";
+import { useSession } from "@components/auth/Session";
 
 export type SocialProviderKey = "google" | "apple" | "github" | "microsoft";
 
